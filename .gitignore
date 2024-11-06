@@ -1,0 +1,17 @@
+# Visual Studio-related files
+.vs/
+*.user
+*.suo
+*.vsidx
+
+# ASP.NET Core build outputs
+bin/
+obj/
+
+# User-specific files
+*.user
+*.rsuser
+
+# Others
+*.log
+logs/
