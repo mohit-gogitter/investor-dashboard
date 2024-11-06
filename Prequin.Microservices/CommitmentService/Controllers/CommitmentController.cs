@@ -55,13 +55,13 @@ namespace CommitmentService.Controllers
         {
             try
             {
-                var investorCommitments = await _repository.GetCommitmentsByInvestorAsync(investorId);
+                var commitments = await _repository.GetCommitmentsByInvestorAsync(investorId);
 
-                if (investorCommitments == null || !investorCommitments.Any())
+                if (commitments == null || !commitments.InvestorCommitments.Any() || !commitments.AssetCommitmentTotals.Any())
                 {
                     return NotFound(new { message = $"No commitments found for investor ID {investorId}" });
                 }
-                return Ok(investorCommitments);
+                return Ok(commitments);
             }
             catch (Exception ex)
             {

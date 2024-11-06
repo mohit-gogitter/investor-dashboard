@@ -23,6 +23,10 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddDbContext<InvestorDbContext>(op => op.UseNpgsql(builder.Configuration.GetConnectionString("InvestorDbConnectionString")));
 
+builder.Services.AddHttpClient("CommitmentServiceClient", client => {
+    client.BaseAddress = new Uri("http://localhost:5021/");
+});
+
 builder.Services.AddScoped<IInvestorRepository, InvestorRepository>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

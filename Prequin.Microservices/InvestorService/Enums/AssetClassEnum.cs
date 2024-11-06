@@ -1,6 +1,6 @@
 ﻿namespace InvestorService.Enums
 {
-    public enum AssetClass
+    public enum AssetClassEnum
     {
         Infrastructure = 1,
         HedgeFunds = 2,

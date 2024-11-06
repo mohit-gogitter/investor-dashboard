@@ -1,6 +1,6 @@
 ﻿namespace InvestorService.Enums
 {
-    public enum InvestorType
+    public enum InvestorTypeEnum
     {
         Bank = 1,
         AssetManager = 2,

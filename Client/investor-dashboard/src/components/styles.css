@@ -1,0 +1,25 @@
+/* Slot Machine Animation */
+.slot-machine {
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .slot-machine::before {
+    content: attr(data-value);
+    position: absolute;
+    animation: scroll 1s ease-out forwards;
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  

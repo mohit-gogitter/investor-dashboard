@@ -54,5 +54,20 @@ namespace InvestorService.Controllers
                 return StatusCode(500, new { message = "An error occurred while processing your request.", details = ex.Message });
             }
         }
+
+        [HttpGet("totalcommitmentamount/{investorId}")]
+        public async Task<IActionResult> GetInvestorTotal(int investorId)
+        {
+            try
+            {
+                var total = await _repository.GetTotalCommitmentAmountForInvestor(investorId);                
+                return Ok(total);
+
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "An error occurred while processing your request.", details = ex.Message });
+            }
+        }
     }
 }
