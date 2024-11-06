@@ -1,5 +1,5 @@
-using InvestorService;
-using InvestorService.Repository;
+using CommitmentService;
+using CommitmentService.Repository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,9 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-builder.Services.AddDbContext<InvestorDbContext>(op => op.UseNpgsql(builder.Configuration.GetConnectionString("InvestorDbConnectionString")));
+builder.Services.AddDbContext<CommitmentDbContext>(op => op.UseNpgsql(builder.Configuration.GetConnectionString("CommitmentDbConnectionString")));
 
-builder.Services.AddScoped<IInvestorRepository, InvestorRepository>();
+builder.Services.AddScoped<ICommitmentRepository, CommitmentRepository>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
