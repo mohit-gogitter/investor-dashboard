@@ -8,7 +8,7 @@ namespace CommitmentService.Models
         [Column("pk_commitment_id")]
         public int CommitmentId { get; set; }
         [Column("amount")]
-        public decimal amount { get; set; }
+        public decimal Amount { get; set; }
         [Column("currency")]
         public string? Currency { get; set; }
         [Column("fk_investor_id")]

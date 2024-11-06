@@ -1,4 +1,5 @@
-﻿using CommitmentService.Models;
+﻿using CommitmentService.Enums;
+using CommitmentService.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace CommitmentService.Repository
@@ -21,19 +22,53 @@ namespace CommitmentService.Repository
             return await _context.Commitments.ToListAsync();
         }
 
-        async Task<IEnumerable<Commitment>> ICommitmentRepository.GetCommitmentsByInvestorAsync(int investorId)
+        async Task<CommitmentDto> ICommitmentRepository.GetCommitmentsByInvestorAsync(int investorId)
         {
             var query = _context.Commitments
                                  .Where(c => c.InvestorId == investorId);
 
-            return await query.Select(c => new Commitment
+            var commitments = await query.Select(c => new Commitment
             {
                 CommitmentId = c.CommitmentId,
-                amount = c.amount,
+                Amount = c.Amount,
                 Currency = c.Currency,
                 AssetClassId = c.AssetClassId,
                 InvestorId = c.InvestorId
             }).ToListAsync();
+
+            List<InvestorCommitment> investorCommitments = commitments.Select(c => new InvestorCommitment
+            {
+                CommitmentId = c.CommitmentId,
+                Amount = c.Amount,
+                AssetClassId = c.AssetClassId,
+                AssetClass = GetStringValue(c.AssetClassId),
+                Currency = c.Currency,
+                InvestorId = c.InvestorId
+            }).OrderByDescending(c => c.Amount)
+              .ToList();
+
+            CommitmentDto commitmentDto = new CommitmentDto();
+
+            commitmentDto.InvestorCommitments = investorCommitments;
+            commitmentDto.AssetCommitmentTotals = new List<AssetCommitmentTotal>();
+
+            foreach (int assetClassid in Enum.GetValues<AssetClassEnum>())
+            {
+                commitmentDto.AssetCommitmentTotals.Add(new AssetCommitmentTotal
+                {
+                    AssetClassId = assetClassid,
+                    AssetClass = GetStringValue(assetClassid),
+                    Total = investorCommitments.Where(ic => ic.AssetClassId == assetClassid).Sum(ic => ic.Amount)
+                });
+            }
+
+            return commitmentDto;
+        }
+
+        private string GetStringValue(int value)
+        {
+            var strValue = (AssetClassEnum)value;
+            return strValue.ToString();
         }
     }
 }

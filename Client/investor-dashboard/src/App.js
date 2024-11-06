@@ -24,7 +24,7 @@ function App() {
         <p className="text-gray-400">Track and manage investor commitments seamlessly.</p>
       </header>
       
-      <main className="flex-grow w-full max-w-5xl mx-auto px-4">
+      <main className="flex-grow w-full max-w-7xl mx-auto px-4">
         <InvestorTable onRowClick={openModal} />
       </main>
 

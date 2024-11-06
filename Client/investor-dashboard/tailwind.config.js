@@ -5,6 +5,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Wix Madefor Display', 'sans-serif'], // Use for general text
+        mono: ['Fira Code', 'monospace'], // Use for code or specific sections
+      },
       colors: {
         'navy-900': '#1a1f36', // Dark navy
         'navy-800': '#212a45',
@@ -14,6 +18,8 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar'),
+  ],
 }
 
