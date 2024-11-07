@@ -65,8 +65,8 @@ const InvestorTable = () => {
     setSelectedInvestor(null);
   };
 
-  if (loading) return <CubeLoader />;
-  if (error) return <p className="text-red-500 self-center">Error: {error}</p>;
+  if (loading) return <CubeLoader data={"Investors"}/>;
+  if (error) return <p className="text-red-500 font-semibold text-center">Error: {error}</p>;
 
   return (
     <div className="bg-navy-900 shadow-lg rounded-lg overflow-hidden">
@@ -87,7 +87,7 @@ const InvestorTable = () => {
           {investors.map((investor) => (
             <tr
               key={investor.id}
-              className="cursor-pointer bg-navy-800 hover:bg-gradient-to-r from-green-700 to-blue-800 text-white transform transition-transform duration-200 hover:scale-[1.02]"
+              className="cursor-pointer bg-navy-800 hover:bg-gradient-to-r from-green-700 to-blue-800 text-white transform transition-transform duration-200 hover:scale-[1.02] origin-center overflow-hidden"
               onClick={() => handleRowClick(investor)}
             >
               <td className="py-4 px-6 border-b border-gray-700">
