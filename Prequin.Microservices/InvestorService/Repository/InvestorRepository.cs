@@ -47,10 +47,10 @@ namespace InvestorService.Repository
 
             if (response.IsSuccessStatusCode)
             {
-                var commitments = await response.Content.ReadFromJsonAsync<List<CommitmentDto>>();
+                var commitments = await response.Content.ReadFromJsonAsync<CommitmentDto>();
 
                 // Sum up the Amount field to get total commitment
-                var totalCommitment = commitments?.Sum(c => c.Amount) ?? 0;
+                var totalCommitment = commitments.InvestorCommitments?.Sum(c => c.Amount) ?? 0;
 
                 return totalCommitment;
             }
