@@ -1,7 +1,7 @@
 import React from 'react';
 import "./styles.css";
 
-const CubeLoader = () => {
+const CubeLoader = (props) => {
   return (
     <div className="cube-loader flex flex-col items-center justify-center h-full space-y-4">
       <div className="cube">
@@ -12,7 +12,7 @@ const CubeLoader = () => {
         <div className="face top"></div>
         <div className="face bottom"></div>
       </div>
-      <div className="loading-text">Fetching Data...</div>
+      <div className="loading-text">Fetching {props.data}...</div>
     </div>
   );
 };
