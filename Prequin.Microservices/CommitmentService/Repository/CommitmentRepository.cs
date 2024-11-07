@@ -50,7 +50,15 @@ namespace CommitmentService.Repository
             CommitmentDto commitmentDto = new CommitmentDto();
 
             commitmentDto.InvestorCommitments = investorCommitments;
-            commitmentDto.AssetCommitmentTotals = new List<AssetCommitmentTotal>();
+            commitmentDto.AssetCommitmentTotals =
+            [
+                new AssetCommitmentTotal
+                {
+                    AssetClass = "All",
+                    AssetClassId = 0,
+                    Total = 0
+                },
+            ];
 
             foreach (int assetClassid in Enum.GetValues<AssetClassEnum>())
             {
@@ -61,6 +69,7 @@ namespace CommitmentService.Repository
                     Total = investorCommitments.Where(ic => ic.AssetClassId == assetClassid).Sum(ic => ic.Amount)
                 });
             }
+            commitmentDto.AssetCommitmentTotals.Where(c => c.AssetClassId == 0).First().Total = commitmentDto.AssetCommitmentTotals.Sum(c => c.Total);
 
             return commitmentDto;
         }

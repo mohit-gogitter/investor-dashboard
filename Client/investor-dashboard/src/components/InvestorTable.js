@@ -1,11 +1,15 @@
 // src/components/InvestorTable.js
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import CubeLoader from "./CubeLoader";
+import InvestorModal from "./InvestorModal";
 
-const InvestorTable = ({ onRowClick }) => {
-  const [investors, setInvestors] = useState([]); // State for the data
-  const [loading, setLoading] = useState(true); // State for loading
-  const [error, setError] = useState(null); // State for error
+const InvestorTable = () => {
+  const [investors, setInvestors] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedInvestor, setSelectedInvestor] = useState(null);
 
   useEffect(() => {
     const fetchInvestors = async () => {
@@ -51,7 +55,17 @@ const InvestorTable = ({ onRowClick }) => {
     fetchInvestors();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
+  const handleRowClick = (investor) => {
+    setSelectedInvestor(investor);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedInvestor(null);
+  };
+
+  if (loading) return <CubeLoader />;
   if (error) return <p>Error: {error}</p>;
 
   return (
@@ -73,8 +87,8 @@ const InvestorTable = ({ onRowClick }) => {
           {investors.map((investor) => (
             <tr
               key={investor.id}
-              className="cursor-pointer bg-navy-800 hover:bg-gradient-to-r from-green-700 to-blue-800 text-white"
-              onClick={() => onRowClick(investor)}
+              className="cursor-pointer bg-navy-800 hover:bg-gradient-to-r from-green-700 to-blue-800 text-white transform transition-transform duration-200 hover:scale-[1.02]"
+              onClick={() => handleRowClick(investor)}
             >
               <td className="py-4 px-6 border-b border-gray-700">
                 {investor.investorId}
@@ -98,6 +112,11 @@ const InvestorTable = ({ onRowClick }) => {
           ))}
         </tbody>
       </table>
+
+      {/* Modal Component */}
+      {isModalOpen && (
+        <InvestorModal investor={selectedInvestor} onClose={closeModal} />
+      )}
     </div>
   );
 };

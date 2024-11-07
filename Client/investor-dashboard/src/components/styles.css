@@ -22,4 +22,53 @@
     }
   }
   
+/* Cube container to center it and apply perspective */
+.cube-loader {
+    perspective: 600px;
+  }
   
+  .cube {
+    margin-top: 2rem;
+    position: relative;
+    width: 40px;    
+    height: 40px;
+    transform-style: preserve-3d;
+    animation: rotate-cube 1.5s infinite linear;    
+  }
+  
+  /* Individual faces of the cube */
+  .face {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: #b6e647;
+    opacity: 0.9;
+    border: 1px solid #21671e;
+  }
+  
+  /* Position each face of the cube */
+  .front  { transform: translateZ(20px); }
+  .back   { transform: rotateY(180deg) translateZ(20px); }
+  .left   { transform: rotateY(-90deg) translateZ(20px); }
+  .right  { transform: rotateY(90deg) translateZ(20px); }
+  .top    { transform: rotateX(90deg) translateZ(20px); }
+  .bottom { transform: rotateX(-90deg) translateZ(20px); }
+  
+  /* Cube rotation animation */
+  @keyframes rotate-cube {
+    0%   { transform: rotateX(0deg) rotateY(0deg); }
+    50%  { transform: rotateX(180deg) rotateY(180deg); }
+    100% { transform: rotateX(360deg) rotateY(360deg); }
+  }
+  
+  .loading-text {
+    font-size: 1rem;
+    color: #ffffff;
+    animation: blink 2s infinite;
+  }
+  
+  /* Blinking animation */
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0; }
+  }
