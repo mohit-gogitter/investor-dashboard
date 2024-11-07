@@ -66,7 +66,7 @@ const InvestorTable = () => {
   };
 
   if (loading) return <CubeLoader />;
-  if (error) return <p>Error: {error}</p>;
+  if (error) return <p className="text-red-500 self-center">Error: {error}</p>;
 
   return (
     <div className="bg-navy-900 shadow-lg rounded-lg overflow-hidden">
@@ -100,7 +100,7 @@ const InvestorTable = () => {
                 {investor.type}
               </td>
               <td className="py-4 px-6 border-b border-gray-700">
-                {investor.dateAdded}
+                {new Date(investor.dateAdded).toLocaleDateString()}
               </td>
               <td className="py-4 px-6 border-b border-gray-700">
                 {investor.address}

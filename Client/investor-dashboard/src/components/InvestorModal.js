@@ -60,10 +60,10 @@ const InvestorModal = ({ investor, onClose }) => {
           isAnimating ? "scale-100 opacity-100" : "scale-95 opacity-0"
         }`}
       >
-        <h2 className="text-2xl font-bold text-white mb-4">
+        <h2 className="text-2xl  font-bold text-white mb-4">
           Investor Commitments
         </h2>
-        <p className="text-gray-400 mb-4">
+        <p className=" text-lg text-gray-300 mb-4">
           <strong>Investor:</strong> {investor.investorName}
         </p>
 
