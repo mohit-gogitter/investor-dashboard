@@ -75,6 +75,12 @@ _**The frontend will start on http://localhost:3000.**_
 Now you should have a fully functional InvestorDashboard application running locally. Open your browser and go to http://localhost:3000 to interact with the application.
 
 
+### 7. Application Screenshots
+- Investors View<br/>
+![investor_view](https://drive.google.com/uc?export=view&id=17qpKBRnoJgY-KfdX6nr-JBquuDeFxrhf)<br/>
+- Commitments View<br/>
+![commitment_view](https://drive.google.com/uc?export=view&id=1sRxhpwf8JaA4wlRimCYQzexx5BNvcH8n)<br/>
+
 ### Additional Notes
 API Documentation for the backend services is available using Swagger at:
 **InvestorService**: [here](http://localhost:5020/swagger)
