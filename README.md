@@ -42,11 +42,11 @@ Steps to Build and Run the Services:
   ```cd Prequin.Microservices```
   
 - Navigate to each Service Directory and Restore Packages and build:
-        - For InvestorService:
+ - For InvestorService:
                  cd InvestorService
                  dotnet restore
                  dotnet build
-        - For CommitmentService:
+ - For CommitmentService:
                  cd CommitmentService
                  dotnet restore
                  dotnet build
