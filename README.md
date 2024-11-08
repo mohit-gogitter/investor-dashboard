@@ -28,9 +28,8 @@ Inside the Preqin.Micrservices folder, there are 2 indepenedent services build u
       - Open Postgres using **PgAdmin** tool and create a databse with name '**prequin**'
       - Execute the provided SQL queries to set up the necessary tables and insert data<br/>
           _**Note**: A detailed document with table creation and insert queries can be found [here](https://docs.google.com/document/d/1FoQgkdzTB00caN_REpJYy9i4JpH2i49S/edit?usp=drive_link&ouid=105944540482385202029&rtpof=true&sd=true)._
-The DB Structure should look like this:<br/>
-
-![db_image](https://drive.google.com/uc?export=view&id=1KpmkAMBKiX1WI24ofz4ixar4tZVfRyIa)
+      The DB Structure should look like this:<br/>
+      ![db_image](https://drive.google.com/uc?export=view&id=1KpmkAMBKiX1WI24ofz4ixar4tZVfRyIa)
         
 2. Update the connection string in the **appsettings.json** file for both services (InvestorService and CommitmentService) to connect to your PostgreSQL instance:<br/> 
 ![connection_string_image](https://drive.google.com/uc?export=view&id=1L6TGR2Bn_OaiJ2AP4uUKZ4ZFlCePxdfn)
