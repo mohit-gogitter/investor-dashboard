@@ -68,12 +68,12 @@ const InvestorModal = ({ investor, onClose }) => {
                 className={`cursor-pointer p-4 rounded-lg shadow-lg flex-1 transition-colors duration-200
                   ${
                     selectedAssetClass === null
-                      ? "bg-gradient-to-r from-blue-600 to-teal-500 text-white"
+                      ? "bg-gradient-to-r from-blue-500 to-teal-500 text-white"
                       : "bg-gradient-to-r from-gray-700 to-gray-800 text-gray-300"
                   }`}
               >
-                <h3 className="text-lg font-semibold">All</h3>
-                <p className="text-sm font-semibold">
+                <h3 className="text-md font-semibold">All</h3>
+                <p className="text-lg font-semibold">
                   £ {totalAllAssets.toLocaleString()}
                 </p>
               </div>
@@ -90,8 +90,8 @@ const InvestorModal = ({ investor, onClose }) => {
                         : "bg-gradient-to-r from-gray-700 to-gray-800 text-gray-300"
                     }`}
                 >
-                  <h3 className="text-lg font-semibold">{assetTotal.assetClass}</h3>
-                  <p className="text-sm font-semibold">
+                  <h3 className="text-md font-semibold">{assetTotal.assetClass}</h3>
+                  <p className="text-lg font-semibold">
                     £ {assetTotal.total.toLocaleString()}
                   </p>
                 </div>
