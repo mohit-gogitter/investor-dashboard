@@ -26,7 +26,7 @@ const InvestorTable = () => {
           // Call GetTotalCommitmentAmountForInvestor API to fetch total commitment for this investor
           try {
             const commitmentResponse = await axios.get(
-              `http://localhost:5020/api/Investor/totalcommitmentamount/${investor.investorId}`
+              `http://localhost:5020/api/Investor/${investor.investorId}/totalcommitmentamount`
             );
             const totalCommitment = commitmentResponse.data;
 

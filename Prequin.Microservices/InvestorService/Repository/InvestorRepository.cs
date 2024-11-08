@@ -43,7 +43,7 @@ namespace InvestorService.Repository
         public async Task<decimal> GetTotalCommitmentAmountForInvestor(int investorId)
         {
             var client = _httpClientFactory.CreateClient("CommitmentServiceClient");
-            var response = await client.GetAsync($"api/Commitment/commitments/{investorId}");
+            var response = await client.GetAsync($"api/Commitment/{investorId}/commitments");
 
             if (response.IsSuccessStatusCode)
             {

@@ -55,7 +55,7 @@ namespace InvestorService.Controllers
             }
         }
 
-        [HttpGet("totalcommitmentamount/{investorId}")]
+        [HttpGet("{investorId}/totalcommitmentamount")]
         public async Task<IActionResult> GetInvestorTotal(int investorId)
         {
             try
