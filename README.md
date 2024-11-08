@@ -38,15 +38,15 @@ Steps to Build and Run the Services:
 - Clone the Repository:<br/>
 ```git clone https://github.com/mohit-gogitter/prequin-assessment-mohit.git```
 
-  Once cloning in complete, navaigate to **PrequinMicroservices/** folder - <br/>
+  Once cloning in complete, navaigate to **Prequin.Microservices/** folder - <br/>
   ```cd Prequin.Microservices```
   
 - Navigate to each Service Directory and Restore Packages and build:
-        For InvestorService:
+        - For InvestorService:
                  cd InvestorService
                  dotnet restore
                  dotnet build
-        For CommitmentService:
+        - For CommitmentService:
                  cd CommitmentService
                  dotnet restore
                  dotnet build
