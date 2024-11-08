@@ -11,6 +11,7 @@ InvestorDashboard is a full-stack application designed to manage investor inform
 4. Backend Services Setup
 5. Front End Setup
 6. Running the Application
+7. Application Screenshots
 
 ### 1. Prerequisites
 Ensure you have following installed on your system:
