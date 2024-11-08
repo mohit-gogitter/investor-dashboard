@@ -9,6 +9,7 @@ const InvestorModal = ({ investor, onClose }) => {
   const [error, setError] = useState(null);
   const [assetClassesTotal, setAssetClassesTotal] = useState([]);
   const [selectedAssetClass, setSelectedAssetClass] = useState(null);
+  const [showModal, setShowModal] = useState(false); // For entry and exit transition
 
   useEffect(() => {
     if (!investor.investorId) return;
@@ -33,6 +34,17 @@ const InvestorModal = ({ investor, onClose }) => {
     fetchCommitments();
   }, [investor.investorId]);
 
+  // Show modal on mount
+  useEffect(() => {
+    setShowModal(true);
+  }, []);
+
+  // Close modal with transition
+  const handleClose = () => {
+    setShowModal(false);
+    setTimeout(onClose, 300); // Delay to allow the animation to complete
+  };
+
   // Calculate the total amount across all asset classes
   const totalAllAssets = assetClassesTotal.reduce(
     (sum, asset) => sum + asset.total,
@@ -45,11 +57,17 @@ const InvestorModal = ({ investor, onClose }) => {
     : commitments;
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-50">
-      <div className="bg-navy-900 p-6 rounded-lg shadow-2xl w-full h-[90vh] overflow-hidden flex flex-col">
-        <h2 className="text-2xl font-bold text-white mb-4">
-          Investor Commitments
-        </h2>
+    <div
+      className={`fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 transition-opacity duration-300 ${
+        showModal ? "opacity-100" : "opacity-0"
+      }`}
+    >
+      <div
+        className={`bg-navy-900 p-6 rounded-lg shadow-2xl w-full h-[90vh] overflow-hidden flex flex-col transform transition-all duration-300 ${
+          showModal ? "scale-100 opacity-100" : "scale-90 opacity-0"
+        }`}
+      >
+        <h2 className="text-2xl font-bold text-white mb-4">Investor Commitments</h2>
         <p className="text-gray-400 mb-4">
           <strong>Investor:</strong> {investor.investorName}
         </p>
@@ -82,7 +100,7 @@ const InvestorModal = ({ investor, onClose }) => {
               {assetClassesTotal.map((assetTotal, index) => (
                 <div
                   key={index}
-                  onClick={() => setSelectedAssetClass(assetTotal.assetClass)} // Click handler
+                  onClick={() => setSelectedAssetClass(assetTotal.assetClass)}
                   className={`cursor-pointer p-4 rounded-lg shadow-lg flex-1 transition-colors duration-200
                     ${
                       selectedAssetClass === assetTotal.assetClass
@@ -135,7 +153,7 @@ const InvestorModal = ({ investor, onClose }) => {
         {/* Close Button */}
         <button
           className="w-40 py-2 gap-4 ml-auto bg-gradient-to-r from-red-600 to-red-700 text-white font-semibold rounded hover:bg-purple-700 transition duration-200 mt-auto"
-          onClick={onClose}
+          onClick={handleClose}
         >
           Close
         </button>
