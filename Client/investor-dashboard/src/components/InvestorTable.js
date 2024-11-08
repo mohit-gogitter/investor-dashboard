@@ -86,7 +86,7 @@ const InvestorTable = () => {
         <tbody>
           {investors.map((investor) => (
             <tr
-              key={investor.id}
+              key={investor.investorId }
               className="cursor-pointer bg-navy-800 hover:bg-gradient-to-r from-green-700 to-blue-800 text-white transform transition-transform duration-200 hover:scale-[1.02] origin-center overflow-hidden"
               onClick={() => handleRowClick(investor)}
             >
