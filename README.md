@@ -18,7 +18,7 @@ Ensure you have following installed on your system:
 - [PostgresSQL](https://www.postgresql.org/download/)
 - [.NET 8 SDK](https://dotnet.microsoft.com/en-us/download)
 - [Node.js(v14 or above)](https://nodejs.org/en/download/prebuilt-installer)
-- npm -- *this will be downlaoded along with Node.js installation*
+- npm -- *this will be installed along with Node.js installation*
 
 ### 2. Project Strucutre
 This code base contains two main folder viz. **Prequin.Microservices/** (contains all the backend microservices) and a **Client/** folder (contains the front end application *investor-dashboard*).<br/>
