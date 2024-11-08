@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CubeLoader from "./CubeLoader";
+import AnimatedAmount from "./AnimatedAmount";
 
 const InvestorModal = ({ investor, onClose }) => {
   const [commitments, setCommitments] = useState([]);
@@ -91,9 +92,7 @@ const InvestorModal = ({ investor, onClose }) => {
                   }`}
               >
                 <h3 className="text-md font-semibold">All</h3>
-                <p className="text-lg font-semibold">
-                  £ {totalAllAssets.toLocaleString()}
-                </p>
+                  <AnimatedAmount value={totalAllAssets} />
               </div>
 
               {/* Dynamic Asset Class Cards */}
@@ -109,9 +108,7 @@ const InvestorModal = ({ investor, onClose }) => {
                     }`}
                 >
                   <h3 className="text-md font-semibold">{assetTotal.assetClass}</h3>
-                  <p className="text-lg font-semibold">
-                    £ {assetTotal.total.toLocaleString()}
-                  </p>
+                  <AnimatedAmount value = {assetTotal.total}/>
                 </div>
               ))}
             </div>
