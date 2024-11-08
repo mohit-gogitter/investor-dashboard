@@ -36,10 +36,11 @@ Inside the Preqin.Micrservices folder, there are 2 indepenedent services build u
 The backend consists of two microservices: InvestorService and CommitmentService.
 Steps to Build and Run the Services:
 - Clone the Repository:<br/>
-````git clone https://github.com/mohit-gogitter/prequin-assessment-mohit.git````
+```git clone https://github.com/mohit-gogitter/prequin-assessment-mohit.git```
 
-  Once cloning in complete, navaigate to Microservices folder -
-               cd Prequin.Microservices
+  Once cloning in complete, navaigate to **PrequinMicroservices/** folder - <br/>
+  ```cd Prequin.Microservices````
+  
 - Navigate to each Service Directory and Restore Packages and build:
         For InvestorService:
                  cd InvestorService
