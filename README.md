@@ -63,8 +63,8 @@ _Both services should start successfully on their configured ports, accessible v
 - Install Dependencies:<br/>
      ```npm intall```
 - Start the Application:<br/>
-     ```npm start```
-**The frontend will start on http://localhost:3000.**__
+     ```npm start```<br/>
+_**The frontend will start on http://localhost:3000.**_
 
 ### 6. Running the Application
 - Start PostgreSQL Database.
