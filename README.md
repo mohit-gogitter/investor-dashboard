@@ -64,7 +64,7 @@ _Both services should start successfully on their configured ports, accessible v
 - Navigate to fontend directory from root:<br/>
      ```cd Client/investor-dashboard```
 - Install Dependencies:<br/>
-     ```npm intall```
+     ```npm install```
 - Start the Application:<br/>
      ```npm start```<br/>
 _**The frontend will start on http://localhost:3000.**_
