@@ -5,7 +5,7 @@ namespace InvestorService.Models
     [Table("investors", Schema = "public")]
     public class Investor
     {
-        [Column("pk_investor_id")]
+        [Column("investor_id")]
         public int InvestorId { get; set; }
         [Column("investor_name")]
         public string? InvestorName { get; set; }

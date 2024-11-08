@@ -8,6 +8,7 @@ const InvestorModal = ({ investor, onClose }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [assetClassesTotal, setAssetClassesTotal] = useState([]);
+  const [selectedAssetClass, setSelectedAssetClass] = useState(null);
 
   useEffect(() => {
     if (!investor.investorId) return;
@@ -32,6 +33,17 @@ const InvestorModal = ({ investor, onClose }) => {
     fetchCommitments();
   }, [investor.investorId]);
 
+  // Calculate the total amount across all asset classes
+  const totalAllAssets = assetClassesTotal.reduce(
+    (sum, asset) => sum + asset.total,
+    0
+  );
+
+  // Filtered commitments based on selected asset class
+  const filteredCommitments = selectedAssetClass
+    ? commitments.filter((commitment) => commitment.assetClass === selectedAssetClass)
+    : commitments;
+
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-50">
       <div className="bg-navy-900 p-6 rounded-lg shadow-2xl w-full h-[90vh] overflow-hidden flex flex-col">
@@ -43,28 +55,44 @@ const InvestorModal = ({ investor, onClose }) => {
         </p>
 
         {loading ? (
-          <CubeLoader data={`Commitments for ${investor.investorName}`}/>
+          <CubeLoader data={`Commitments for ${investor.investorName}`} />
         ) : error ? (
           <p className="text-red-500 text-center">Error: {error}</p>
         ) : (
           <>
             {/* Asset Class Cards */}
             <div className="flex w-full space-x-4 mb-4">
+              {/* "All" Card with Total Amount */}
+              <div
+                onClick={() => setSelectedAssetClass(null)}
+                className={`cursor-pointer p-4 rounded-lg shadow-lg flex-1 transition-colors duration-200
+                  ${
+                    selectedAssetClass === null
+                      ? "bg-gradient-to-r from-blue-600 to-teal-500 text-white"
+                      : "bg-gradient-to-r from-gray-700 to-gray-800 text-gray-300"
+                  }`}
+              >
+                <h3 className="text-lg font-semibold">All</h3>
+                <p className="text-sm font-semibold">
+                  £ {totalAllAssets.toLocaleString()}
+                </p>
+              </div>
+
+              {/* Dynamic Asset Class Cards */}
               {assetClassesTotal.map((assetTotal, index) => (
                 <div
                   key={index}
-                  className={`bg-gradient-to-r p-4 rounded-lg shadow-lg flex-1 
-                          ${index === 0 ? "from-blue-500 to-teal-500" : ""}
-                          ${index === 1 ? "from-indigo-600 to-purple-600" : ""}
-                          ${index === 2 ? "from-indigo-600 to-purple-600" : ""}
-                          ${index === 3 ? "from-indigo-600 to-purple-600" : ""}
-                          ${index === 4 ? "from-indigo-600 to-purple-600" : ""}
-                          ${index === 5 ? "from-indigo-600 to-purple-600" : ""}
-                          ${index === 6 ? "from-indigo-600 to-purple-600" : ""}`}
+                  onClick={() => setSelectedAssetClass(assetTotal.assetClass)} // Click handler
+                  className={`cursor-pointer p-4 rounded-lg shadow-lg flex-1 transition-colors duration-200
+                    ${
+                      selectedAssetClass === assetTotal.assetClass
+                        ? "bg-gradient-to-r from-indigo-500 to-purple-600 text-white"
+                        : "bg-gradient-to-r from-gray-700 to-gray-800 text-gray-300"
+                    }`}
                 >
-                  <h3 className="text-lg ">{assetTotal.assetClass}</h3>
-                  <p className="text-sm">
-                    <span className="slot-machine">{`£ ${assetTotal.total.toLocaleString()}`}</span>
+                  <h3 className="text-lg font-semibold">{assetTotal.assetClass}</h3>
+                  <p className="text-sm font-semibold">
+                    £ {assetTotal.total.toLocaleString()}
                   </p>
                 </div>
               ))}
@@ -82,7 +110,7 @@ const InvestorModal = ({ investor, onClose }) => {
                   </tr>
                 </thead>
                 <tbody>
-                  {commitments.map((commitment) => (
+                  {filteredCommitments.map((commitment) => (
                     <tr key={commitment.commitmentId}>
                       <td className="py-2 px-4 border-b border-gray-700 text-gray-300">
                         {commitment.commitmentId}
