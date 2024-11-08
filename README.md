@@ -34,23 +34,23 @@ Inside the Preqin.Micrservices folder, there are 2 indepenedent services build u
         
 ### 4. Backend Services Setup
 The backend consists of two microservices: InvestorService and CommitmentService.
-### Steps to Build and Run the Services:
-1. Clone the Repository:
-   git clone https://github.com/mohit-gogitter/prequin-assessment-mohit.git
+      ### Steps to Build and Run the Services:
+      1. Clone the Repository:
+            git clone https://github.com/mohit-gogitter/prequin-assessment-mohit.git
 
-   Once cloning in complete, navaigate to Microservices folder -
-   cd Prequin.Microservices
+         Once cloning in complete, navaigate to Microservices folder -
+               cd Prequin.Microservices
 
-2. Navigate to each Service Directory and Restore Packages and build:
-   - For InvestorService:
-     cd InvestorService
-     dotnet restore
-     dotnet build
+      2. Navigate to each Service Directory and Restore Packages and build:
+         - For InvestorService:
+                 cd InvestorService
+                 dotnet restore
+                 dotnet build
 
-   - For CommitmentService:
-     cd CommitmentService
-     dotnet restore
-     dotnet build
+         - For CommitmentService:
+                 cd CommitmentService
+                 dotnet restore
+                 dotnet build
      
 3. Run the Services: Run each service on <ins>separate terminals</ins>
   - In Investor Service
