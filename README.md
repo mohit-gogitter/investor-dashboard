@@ -83,6 +83,6 @@ Now you should have a fully functional InvestorDashboard application running loc
 ![commitment_view](https://drive.google.com/uc?export=view&id=1sRxhpwf8JaA4wlRimCYQzexx5BNvcH8n)<br/>
 
 ### Additional Notes
-API Documentation for the backend services is available using Swagger at:
+API Documentation for the backend services is available using Swagger at:<br/>
 **InvestorService**: [here](http://localhost:5020/swagger)
 **CommitmentService**: [here](http://localhost:5021/swagger/index.html)
