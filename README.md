@@ -5,7 +5,7 @@
 InvestorDashboard is a full-stack application designed to manage investor information and commitments, built using a microservices architecture. This app uses a **PostgreSQL** database for data storage, **.NET Core Web API** for backend services, and **React with Tailwind CSS** for the frontend.
 
 ### Table of Contents
-- [Prerequisites](doc:Prerequisites)
+- [Prerequisites](doc:1. Prerequisites)
 - Project Structure
 - Database Setup
 - Backend Services Setup
