@@ -39,7 +39,7 @@ Steps to Build and Run the Services:
 ```git clone https://github.com/mohit-gogitter/prequin-assessment-mohit.git```
 
   Once cloning in complete, navaigate to **PrequinMicroservices/** folder - <br/>
-  ```cd Prequin.Microservices````
+  ```cd Prequin.Microservices```
   
 - Navigate to each Service Directory and Restore Packages and build:
         For InvestorService:
