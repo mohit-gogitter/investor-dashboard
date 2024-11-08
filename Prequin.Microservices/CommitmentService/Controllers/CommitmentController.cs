@@ -50,7 +50,7 @@ namespace CommitmentService.Controllers
             }
         }
 
-        [HttpGet("commitments/{investorId}")]
+        [HttpGet("{investorId}/commitments")]
         public async Task<IActionResult> GetCommitmentsByInvestor(int investorId)
         {
             try

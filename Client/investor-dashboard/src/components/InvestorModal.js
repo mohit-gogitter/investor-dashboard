@@ -21,7 +21,7 @@ const InvestorModal = ({ investor, onClose }) => {
 
       try {
         const response = await axios.get(
-          `http://localhost:5021/api/Commitment/commitments/${investor.investorId}`
+          `http://localhost:5021/api/Commitment/${investor.investorId}/commitments`
         );
         setCommitments(response.data.investorCommitments);
         setAssetClassesTotal(response.data.assetCommitmentTotals);
