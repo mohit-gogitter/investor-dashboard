@@ -81,5 +81,5 @@ Now you should have a fully functional InvestorDashboard application running loc
 
 ### Additional Notes
 API Documentation for the backend services is available using Swagger at:
-InvestorService: [http://localhost:{port}/swagger](http://localhost:5020/swagger)
-CommitmentService: [http://localhost:{port}/swagger](http://localhost:5021/swagger/index.html)
+InvestorService: [here](http://localhost:5020/swagger)
+CommitmentService: [here](http://localhost:5021/swagger/index.html)
