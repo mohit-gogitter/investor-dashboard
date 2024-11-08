@@ -31,7 +31,7 @@ Inside the Preqin.Micrservices folder, there are 2 indepenedent services build u
         
 2. Update the connection string in the **appsettings.json** file for both services (InvestorService and CommitmentService) to connect to your PostgreSQL instance:<br/> 
 
-![image](https://drive.google.com/file/d/1L6TGR2Bn_OaiJ2AP4uUKZ4ZFlCePxdfn/view?usp=drive_link)
+![image](https://drive.google.com/file/d/1L6TGR2Bn_OaiJ2AP4uUKZ4ZFlCePxdfn)
         
 ### 4. Backend Services Setup
 The backend consists of two microservices: InvestorService and CommitmentService.
