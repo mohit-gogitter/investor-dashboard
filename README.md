@@ -42,32 +42,29 @@ Steps to Build and Run the Services:
   ```cd Prequin.Microservices```
   
 - Navigate to each Service Directory and Restore Packages and build:
-  - For InvestorService:
+  - For InvestorService:<br/>
                  ```cd InvestorService```<br/>
                  ```dotnet restore```<br/>
                  ```dotnet build```
-  - For CommitmentService:
+  - For CommitmentService:<br/>
                  ```cd CommitmentService```<br/>
                  ```dotnet restore```<br/>
                  ```dotnet build```
-- Run the Services: Run each service on <ins>separate terminals</ins>
-  - In Investor Service
+- Run the Services: Run each service on <ins>**separate terminals**</ins>
+  - In Investor Service<br/>
                   ```dotnet run```
-  - In CommitmentService
-                  ```dotnet run```
-Both services should start successfully on their configured ports, accessible via endpoints defined in each service.
+  - In CommitmentService<br/>
+                  ```dotnet run```<br/>
+_Both services should start successfully on their configured ports, accessible via endpoints defined in each service._
      
 ### 5. Front End Setup
-1. Navigate to fontend directory from root:
-     cd Client/investor-dashboard
-
-2. Install Dependencies
-     npm intall
-   
-3. Start the Application
-     npm start
-   
-The frontend will start on http://localhost:3000.
+- Navigate to fontend directory from root:<br/>
+     ```cd Client/investor-dashboard```
+- Install Dependencies:<br/>
+     ```npm intall```
+- Start the Application:<br/>
+     ```npm start```
+**The frontend will start on http://localhost:3000.**__
 
 ### 6. Running the Application
 - Start PostgreSQL Database.
