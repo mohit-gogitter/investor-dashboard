@@ -43,18 +43,18 @@ Steps to Build and Run the Services:
   
 - Navigate to each Service Directory and Restore Packages and build:
   - For InvestorService:
-                 cd InvestorService
-                 dotnet restore
-                 dotnet build
+                 ```cd InvestorService```<br/>
+                 ```dotnet restore```<br/>
+                 ```dotnet build```
   - For CommitmentService:
-                 cd CommitmentService
-                 dotnet restore
-                 dotnet build
-  - Run the Services: Run each service on <ins>separate terminals</ins>
-        In Investor Service
-                  dotnet run
-        In CommitmentService
-                  dotnet run
+                 ```cd CommitmentService```<br/>
+                 ```dotnet restore```<br/>
+                 ```dotnet build```
+- Run the Services: Run each service on <ins>separate terminals</ins>
+  - In Investor Service
+                  ```dotnet run```
+  - In CommitmentService
+                  ```dotnet run```
 Both services should start successfully on their configured ports, accessible via endpoints defined in each service.
      
 ### 5. Front End Setup
