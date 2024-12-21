@@ -1,4 +1,4 @@
-# Prequin Takehome Assessment - Mohit Singh
+# Investor Dashboard Mini project by Mohit Singh
 ## <ins>Instructions</ins>
 
 ### InvestorDashboard App
